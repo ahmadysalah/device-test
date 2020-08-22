@@ -1,0 +1,18 @@
+{
+  "EN": {
+    "headers": [],
+    "buttons": ["LCD Test", "Touch Screen Test", "Speaker Test"],
+    "content": [],
+    "test": [
+      "Device",
+      "Brand",
+      "Model",
+      "Name",
+      "Product Year",
+      "Software Version",
+      "Total Memory",
+      "Display",
+      "Finger Print"
+    ]
+  }
+}
