@@ -7,7 +7,13 @@ export default function LcdTest() {
   return (
     <SafeAreaView>
       <Link underlayColor='transparent' exact to={'/'} style={styles.Back}>
-        <Text> {'< '} Back </Text>
+        <>
+          <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+            {' '}
+            {'< '} Back{' '}
+          </Text>
+          <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Press on Box</Text>
+        </>
       </Link>
       <View style={styles.container}>
         <Box color='black' />
@@ -57,14 +63,14 @@ const styles = StyleSheet.create({
   },
   Back: {
     backgroundColor: 'white',
-    paddingLeft: 15,
+    padding: 15,
     // marginTop: StatusBar.currentHeight,
     flex: 0.06,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     alignItems: 'center',
     borderBottomColor: 'silver',
-    borderBottomWidth: 0.5,
-    fontWeight: 'bold',
+    borderBottomEndRadius: 20,
+    borderBottomLeftRadius: 20,
   },
 });

@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,15 +10,20 @@ import {
   ImageBackground,
   Dimensions,
   Platform,
+  BackHandler,
+  Alert,
 } from 'react-native';
 import colors from '../styles/colors';
 import image from '../assets/BG.jpeg';
 import * as Device from 'expo-device';
-import { Link } from 'react-router-native';
+import { useHistory } from 'react-router-native';
 
 const dimensions = Dimensions.get('screen');
-const HomeScreen = (props, history) => {
+
+const HomeScreen = (props) => {
   const { buttons, test } = props.language;
+  const history = useHistory();
+
   return (
     <ImageBackground source={image} style={styles.imageBackground}>
       <StatusBar style='auto' />
@@ -62,22 +67,29 @@ const HomeScreen = (props, history) => {
       </View>
       <View style={styles.controllers}>
         <View style={styles.controllersRow}>
-          <TouchableOpacity style={styles.controllersBtn}>
-            <Link exact to={'/lcd-test'}>
-              <Text style={styles.controllersText}>{buttons[0]}</Text>
-            </Link>
+          <TouchableOpacity
+            style={styles.controllersBtn}
+            onPress={() => history.push('/lcd-test')}
+          >
+            <Text style={styles.controllersText}>{buttons[0]}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.controllersBtn}
-            // onPress={onPressLearnMore}
+            onPress={() => history.push('/touch-test')}
           >
             <Text style={styles.controllersText}>{buttons[1]}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.controllersBtn}
-            // onPress={onPressLearnMore}
+            onPress={() => history.push('/draw')}
           >
             <Text style={styles.controllersText}>{buttons[2]}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.controllersBtn}
+            // onPress={() => history.push('/draw')}
+          >
+            <Text style={styles.controllersText}>{buttons[3]}</Text>
           </TouchableOpacity>
         </View>
       </View>

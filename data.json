@@ -1,7 +1,12 @@
 {
   "EN": {
     "headers": [],
-    "buttons": ["LCD Test", "Touch Screen Test", "Speaker Test"],
+    "buttons": [
+      "LCD Test",
+      "Touch Screen Test",
+      "Draw on Screen",
+      "Speaker Test"
+    ],
     "content": [],
     "test": [
       "Device",
