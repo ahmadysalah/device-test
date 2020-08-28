@@ -75,6 +75,12 @@ const HomeScreen = (props) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.controllersBtn}
+            onPress={() => history.push('/sound-test')}
+          >
+            <Text style={styles.controllersText}>{buttons[3]}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.controllersBtn}
             onPress={() => history.push('/touch-test')}
           >
             <Text style={styles.controllersText}>{buttons[1]}</Text>
@@ -84,12 +90,6 @@ const HomeScreen = (props) => {
             onPress={() => history.push('/draw')}
           >
             <Text style={styles.controllersText}>{buttons[2]}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.controllersBtn}
-            // onPress={() => history.push('/draw')}
-          >
-            <Text style={styles.controllersText}>{buttons[3]}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -101,12 +101,10 @@ const styles = StyleSheet.create({
   imageBackground: {
     width: '100%',
     flex: 1,
-    // height: 600,
     resizeMode: 'cover',
   },
   header: {
     flex: 1,
-    // backgroundColor: colors.primary,
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',

@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import HomeScreen from './screen/HomeScreen';
 import LcdTest from './screen/LcdTest';
 import TouchTest from './screen/TouchTest';
+import Sound from './screen/Sound';
 import DrawScreen from './screen/DrawScreen';
 import { EN } from './data.json';
 
@@ -27,6 +28,11 @@ const App = () => {
             exact
             path='/touch-test'
             render={() => <TouchTest language={EN} />}
+          />
+          <Route
+            exact
+            path='/sound-test'
+            render={() => <Sound language={EN} />}
           />
         </Switch>
       </NativeRouter>
