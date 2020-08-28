@@ -9,7 +9,6 @@ const audio1 = require('../assets/sounds/samsung1.mp3');
 export default function App() {
   const history = useHistory();
   const [playing, setPlaying] = useState(false);
-  const [stop, setStop] = useState(false);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -99,7 +98,6 @@ const styles = {
     width: '100%',
     backgroundColor: 'white',
     padding: 15,
-    // marginTop: StatusBar.currentHeight,
     flex: 0.06,
     flexDirection: 'row',
     justifyContent: 'space-between',

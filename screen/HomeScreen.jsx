@@ -1,31 +1,43 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   StyleSheet,
   Text,
   View,
-  Button,
-  Image,
   TouchableOpacity,
   ImageBackground,
   Dimensions,
   Platform,
-  BackHandler,
-  Alert,
+  Image,
+  Modal,
+  Button,
 } from 'react-native';
 import colors from '../styles/colors';
 import image from '../assets/BG.jpeg';
+import info from '../assets/info.png';
 import * as Device from 'expo-device';
 import { useHistory } from 'react-router-native';
 
-const dimensions = Dimensions.get('screen');
-
 const HomeScreen = (props) => {
   const { buttons, test } = props.language;
-  const history = useHistory();
+  const [modalVisible, setVisible] = useState(false);
 
+  const history = useHistory();
   return (
     <ImageBackground source={image} style={styles.imageBackground}>
+      <View onTouchStart={() => setVisible(true)}>
+        <Image
+          source={info}
+          style={{
+            height: 10,
+            width: 10,
+            position: 'absolute',
+            marginTop: '10%',
+            marginLeft: 5,
+            padding: 20,
+          }}
+        />
+      </View>
       <StatusBar style='auto' />
       <View style={styles.header}>
         <Text
@@ -93,6 +105,19 @@ const HomeScreen = (props) => {
           </TouchableOpacity>
         </View>
       </View>
+      <Modal animationType='slide' transparent={true} visible={modalVisible}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Created By : Ahmad Salah</Text>
+            <Text style={styles.modalText}>
+              Email : a.ahmad.salah@gmail.com{' '}
+            </Text>
+            <Text style={styles.modalText}>Whatsapp : +970-599344838 </Text>
+
+            <Button title='Close' onPress={() => setVisible(!modalVisible)} />
+          </View>
+        </View>
+      </Modal>
     </ImageBackground>
   );
 };
@@ -136,6 +161,27 @@ const styles = StyleSheet.create({
     fontSize: 16,
     padding: 5,
     color: 'white',
+  },
+
+  modalView: {
+    margin: 20,
+    marginTop: '50%',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 });
 
